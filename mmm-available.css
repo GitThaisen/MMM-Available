@@ -1,0 +1,26 @@
+.MMM-Available div {
+    width: 150px;
+}
+
+.MMM-Available img {
+	position: relative;
+	width: 100%;
+	min-height: 130px;
+	border-radius: 50%;
+}
+
+img.present {
+    border: 6px solid #0f0;
+	box-shadow: 0 5px 10px 0 rgba(0,0,.2);
+}
+
+img.not_present {
+    border: 10px solid #f00;
+	box-shadow: 0 5px 10px 0 rgba(0,0,0,.2);
+}
+
+.MMM-Available p {
+    font-weight: 600;
+    font-size: 19px;
+    line-height: 19px;
+}

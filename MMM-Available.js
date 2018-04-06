@@ -41,29 +41,21 @@ Module.register('MMM-Available', {
         });
     },
 
-    getNextPrecipStart: function() {
-        return this.list.points.filter((item) => 
-            item.precipitation.intensity > 0 && Date.parse(item.time) >= new Date().valueOf())[0];
-    },
-
-    getNextPrecipStop: function() {
-        return this.list.points.filter((item) => 
-            item.precipitation.intensity === 0 && Date.parse(item.time) >= new Date().valueOf())[0];
-    },
-
-    getMinutesTill: function(nextItemTime) {
-        return Math.abs(Date.parse(nextItemTime) - new Date().valueOf()) / (1000 * 60);
-    },
-
 	getDom: function() {
-		var wrapper = document.createElement('div');
+        var wrapper = document.createElement('div');
 
 		if (!this.loaded) {
-			wrapper.innerHTML = 'Loading';
+			wrapper.innerHTML = 'Laster...';
 			wrapper.className = 'dimmed light small';
 			return wrapper;
-	    }
-        wrapper.innerHTML = 'Edmunds var sist sett for ' + this.lastSeen; 
+        }
+        var image = document.createElement('img');
+        image.setAttribute('src', this.file('images/edmunds.jpg'));
+        image.className = this.lastSeen.indexOf('sekunder') > -1 ? 'present' : 'not_present';
+        wrapper.appendChild(image);
+        var statusMessage = document.createElement('p');
+        statusMessage.innerHTML = printf('På plass for %s', this.lastSeen);
+        wrapper.appendChild(statusMessage);
     	return wrapper;
 	},
 
