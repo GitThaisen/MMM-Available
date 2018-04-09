@@ -54,7 +54,7 @@ Module.register('MMM-Available', {
         image.className = this.lastSeen.indexOf('sekunder') > -1 ? 'present' : 'not_present';
         wrapper.appendChild(image);
         var statusMessage = document.createElement('p');
-        statusMessage.innerHTML = printf('På plass for %s', this.lastSeen);
+        statusMessage.innerHTML = printf('På plassen sin for <br/> %s', this.lastSeen);
         wrapper.appendChild(statusMessage);
     	return wrapper;
 	},

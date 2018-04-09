@@ -1,5 +1,5 @@
 .MMM-Available div {
-    width: 150px;
+    width: 160px;
 }
 
 .MMM-Available img {
@@ -21,6 +21,7 @@ img.not_present {
 
 .MMM-Available p {
     font-weight: 600;
-    font-size: 19px;
-    line-height: 19px;
+    font-size: 22px;
+    line-height: 24px;
+    text-align: center;
 }
