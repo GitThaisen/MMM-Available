@@ -42,20 +42,23 @@ Module.register('MMM-Available', {
     },
 
 	getDom: function() {
-        var wrapper = document.createElement('div');
-
-		if (!this.loaded) {
-			wrapper.innerHTML = 'Laster...';
-			wrapper.className = 'dimmed light small';
-			return wrapper;
-        }
-        var image = document.createElement('img');
-        image.setAttribute('src', this.file('images/edmunds.jpg'));
-        image.className = this.lastSeen.indexOf('sekunder') > -1 ? 'present' : 'not_present';
-        wrapper.appendChild(image);
-        var statusMessage = document.createElement('p');
-        statusMessage.innerHTML = printf('På plassen sin for <br/> %s', this.lastSeen);
-        wrapper.appendChild(statusMessage);
+         var wrapper = document.createElement('div');
+         var lastSeenData = this.lastSeen.split(' ');
+         
+            if(lastSeenData[1] == 'dager' && parseInt(lastSeenData[0]) > 2)
+               return wrapper;
+            if (!this.loaded) {
+               wrapper.innerHTML = 'Laster...';
+               wrapper.className = 'dimmed light small';
+               return wrapper;
+            }
+         var image = document.createElement('img');
+         image.setAttribute('src', this.file('images/edmunds.jpg'));
+         image.className = this.lastSeen.indexOf('sekunder') > -1 ? 'present' : 'not_present';
+         wrapper.appendChild(image);
+         var statusMessage = document.createElement('p');
+         statusMessage.innerHTML = printf('På plassen sin for <br/> %s', this.lastSeen);
+         wrapper.appendChild(statusMessage);
     	return wrapper;
 	},
 
