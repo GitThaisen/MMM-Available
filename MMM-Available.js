@@ -44,7 +44,9 @@ Module.register('MMM-Available', {
 	getDom: function() {
          var wrapper = document.createElement('div');
          var lastSeenData = this.lastSeen.split(' ');
-         
+
+            if(lastSeenData[1] == 'uker' || lastSeenData[1] == 'måneder')
+               return wrapper;
             if(lastSeenData[1] == 'dager' && parseInt(lastSeenData[0]) > 2)
                return wrapper;
             if (!this.loaded) {
